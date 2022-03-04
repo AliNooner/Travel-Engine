@@ -1,16 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
-</head>
-<body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <title>Love at First Flight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@300&family=PT+Serif&family=Roboto+Serif:wght@100;300;400&family=Zen+Kaku+Gothic+Antique:wght@700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class= "logo">
+        <!-- <img class= "main-logo" src="./images/main-logo.png" alt="love at first flight logo"> -->
+        <h1 class="page-name">Love at First Flight</h1>
+      </div>
+      <div class= "welcome">
+        <p class= "welcome-message">Welcome!</p>
+      </div>
+    </header>
+    <section class= "login-page">
+      <div class= "login-container">
+        <form class= "login-form">
+          <h2 class= "login-title">Login</h2>
+          <p>
+            <label for= "username">Username:</label>
+            <input type= "text" id= "username" name= "username" required>
+          </p>
+          <p>
+            <label for= "password">Password:</label>
+            <input type= "text" id= "password" name= "password" required>
+          </p>
+            <input type= "submit" value= "Let's Go!" class= "login-button">
+        </form>
+      </div>
+    </section>
+    <main class= "dashboard hidden">
+      <section class= "top-section">
+        <aside class= "form-container">
+          <form class= "booking-form">
+            <h2 class= "form title">Let's Book A Trip!</h2>
+            <p>
+              <label for= "trip-destination">Destination:</label>
+              <select id= "trip-destination" name= "travel-location" class= "dropdown" required>
+                <option value="" disable selected hidden>Choose a destination</option>
+              </select>
+            </p>
+            <p>
+              <label for= "departure-date">Departure Date:</label>
+              <input type= "date" id= "departure-date" name= "departure-date" required>
+            </p>
+            <p>
+              <label for= "trip-duration">Trip Duration:</label>
+              <input type= "number" id= "trip-duration" name= "trip-duration" min="1" placeholder="Pls enter a number" required>
+            </p>
+            <p>
+              <label for= "total-travelers">Total Travelers:</label>
+              <input type= "number" id= "trip-duration" name= "trip-duration" min="1" placeholder="Pls enter a number" required>
+            </p>
+            <div class= "form-button-container">
+              <button class="form-button estimate-cost">Estimate Cost</button>
+              <button class="form-button book-trip">Book Trip</button>
+            </div>
+          </form>
+        </aside>
+        <section class= "travel-cost">
+          <div class= "yearly-message-display">
+            <p class= "yearly-message">Total $ Spent on Trips This Year:</p>
+          </div>
+          <div class= "display-estimated-cost">
+            <p class= "estimated-cost">You're one step closer to booking your next trip!</p>
+          </div>
+        </section>
+      </section>
+      <section class= "trip-section">
+        <section class= "all-trips">
+          <h2 class= "user-trips">Your Trips:</h2>
+          <section class= "trip-display"></section>
+        </section>
+      </section>
+    </main>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
-
-</body>
+    <script src="bundle.js"></script>
+  </body>
 </html>
