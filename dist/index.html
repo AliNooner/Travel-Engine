@@ -35,6 +35,21 @@
         </form>
       </div>
     </section>
+    <main class= "dashboard hidden">
+      <section class= "top-section">
+        <aside class= "form-container">
+          <form class= "booking-form">
+            <h2 class= "form title">Let's Book A Trip!</h2>
+            <p>
+              <label for= "trip-destination">Destination:</label>
+              <select id= "trip-destination" name= "travel-location" class= "dropdown" required>
+                <option value="" disable selected hidden>Choose a destination</option>
+              </select>
+            </p>
+          </form>
+        </aside>
+      </section>
+    </main>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
     <script src="bundle.js"></script>
   </body>
