@@ -46,6 +46,22 @@
                 <option value="" disable selected hidden>Choose a destination</option>
               </select>
             </p>
+            <p>
+              <label for= "departure-date">Departure Date:</label>
+              <input type= "date" id= "departure-date" name= "departure-date" required>
+            </p>
+            <p>
+              <label for= "trip-duration">Trip Duration:</label>
+              <input type= "number" id= "trip-duration" name= "trip-duration" min="1" placeholder="Pls enter a number" required>
+            </p>
+            <p>
+              <label for= "total-travelers">Total Travelers:</label>
+              <input type= "number" id= "trip-duration" name= "trip-duration" min="1" placeholder="Pls enter a number" required>
+            </p>
+            <div class= "form-button-container">
+              <button class="form-button estimate-cost">Estimate Cost</button>
+              <button class="form-button book-trip">Book Trip</button>
+            </div>
           </form>
         </aside>
       </section>
