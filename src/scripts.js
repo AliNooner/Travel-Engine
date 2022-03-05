@@ -13,7 +13,8 @@ console.log("This is the JavaScript entry file - your code begins here.");
 // <<<>>> IMPORTS <<<>>>
 import "./css/styles.css";
 import getAllData from "./apiCalls.js";
-import Traveler from "./traveler.js"
+import Traveler from "./traveler.js";
+import Destination from "./destination.js"
 
 // <<<>>> GLOBAL VARIABLES <<<>>>
 
