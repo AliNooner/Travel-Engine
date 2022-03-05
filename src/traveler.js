@@ -1,4 +1,4 @@
-
+import Trip from '/.trip'
 
 class Traveler {
   constructor(travelerData) {

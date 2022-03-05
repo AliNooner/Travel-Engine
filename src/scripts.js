@@ -36,7 +36,7 @@ function fetchAllData() {
     getAllData("http://localhost:3001/api/v1/travelers/3"),
   ]).then((data) => {
     console.log('hi!')
-    console.log(data[1]);
+    console.log(data[2]);
     createDatasets(data[0], data[1], data[2], data[3]);
   });
 }
