@@ -54,6 +54,20 @@ class Traveler {
     })
   }
 
+  // findPendingTrips() {
+  //   this.pendingTrips = this.allTrips.filter(trip => trip.status === "pending");
+  //   return this.pendingTrips;
+  // }
+
+  findPendingTrips() {
+    this.pendingTrips = this.allTrips.filter(trip => {
+      if(trip.status === "pending") {
+        this.pendingTrips.push(trip)
+      }
+      return this.pendingTrips;
+    })
+  }
+
 }
 
 

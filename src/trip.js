@@ -13,10 +13,10 @@ class Trip {
   }
 
   calculateTripCost() {
-    const lodgingCost = this.destinationDetails.estimatedLodgingCostPerDay * this.duration;
-    const flightCost = this.destinationData.flightCostPerPerson * this.numberOfTravelers;
+    const lodgingCost = this.destinationDetails.estimatedLodgingCostPerDay * (this.duration / 86400000);
+    const flightCost = this.destinationData.flightCostPerPerson * this.numberOfTravelers * 2;
     const costTotal = lodgingCost + flightCost;
-    const travelAgentFee = costTotal * .1
+    const travelAgentFee = costTotal * .10
     this.totalTripFee = costTotal + travelAgentFee;
     return this.totalTripFee;
   }
