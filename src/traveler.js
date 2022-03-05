@@ -77,6 +77,13 @@ class Traveler {
     })
   }
 
+  sortTrips() {
+    this.findPastTrips();
+    this.findCurrentTrips();
+    this.findPendingTrips();
+    this.findUpcomingTrips();
+  }
+
 }
 
 
