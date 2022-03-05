@@ -10,6 +10,16 @@ class Trip {
     this.suggestedActivites = tripData.suggestedActivites;
     this.destinationDetails = destination;
   }
+
+  calculateTripCost() {
+    const lodgingCost = this.destinationDetails.estimatedLodgingCostPerDay * this.duration;
+    const flightCost = this.destinationData.flightCostPerPerson * this.numberOfTravelers;
+    const costTotal = lodgingCost + flightCost;
+    const travelAgentFee = costTotal * .1
+    this.totalTripFee = costTotal + travelAgentFee;
+    return this.totalTripFee;
+  }
+
 }
 
 

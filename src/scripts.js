@@ -15,6 +15,7 @@ import "./css/styles.css";
 import getAllData from "./apiCalls.js";
 import Traveler from "./traveler.js";
 import Destination from "./destination.js"
+import Trip from "./trip.js"
 
 // <<<>>> GLOBAL VARIABLES <<<>>>
 
