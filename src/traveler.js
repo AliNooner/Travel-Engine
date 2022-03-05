@@ -8,6 +8,7 @@ class Traveler {
     // this.trips = [];
     // this.tripsThisYear = [];
     // this.totalSpentThisYear = [];
+    this.currentDate = new Date().getTime()
     this.allTrips = [];
     this.pastTrips = [];
     this.currentTrips = [];
@@ -33,6 +34,15 @@ class Traveler {
       })
     })
     return this.allTrips;
+  }
+
+  findPastTrips() {
+    this.pastTrips = this.allTrips.filter(trip => {
+      trip.findEndDate();
+      if(this.currentDate > trip.endDate && !this.pastTrips.includes(trip)) {
+        return trip;
+      }
+    })
   }
 
 }

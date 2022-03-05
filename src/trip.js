@@ -20,6 +20,12 @@ class Trip {
     return this.totalTripFee;
   }
 
+  findEndDate() {
+    this.date = newDate(this.departureData).getTime();
+    let durationInMili = this.duration * 86400000;
+    this.endDate = this.date + durationInMili;
+  }
+
 }
 
 
