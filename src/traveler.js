@@ -84,7 +84,21 @@ class Traveler {
     this.findUpcomingTrips();
   }
 
-}
+  calculateAmountSpentThisYear() {
+    const thisYearsTrips = this.allTrips.filter(trip => {
+      trip.findEndDate();
+      if(trip.date > (newDate('2021/01/01').getTime())) {
+        return trip;
+      }
+    })
+    const annual = thisYearsTrips.reduce((sum, trip) => {
+      sum += trip.findCost()
+      return parseInt(sum).toFixed(2);
+    }, 0)
+    return annual;
+  }
+
+};
 
 
 

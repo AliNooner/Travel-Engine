@@ -10,6 +10,7 @@ class Trip {
     this.suggestedActivites = tripData.suggestedActivites;
     this.endDate;
     this.destinationDetails = destination;
+    this.totalTripFee;
   }
 
   calculateTripCost() {
