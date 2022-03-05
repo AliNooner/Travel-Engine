@@ -4,10 +4,11 @@ class Trip {
     this.userID = tripData.userID;
     this.destinationID = tripData.destinationID;
     this.numberOfTravelers = tripData.travelers;
-    this.departureData = tripData.date;
+    this.date = tripData.date;
     this.duration = tripData.duration;
     this.status = tripData.status;
     this.suggestedActivites = tripData.suggestedActivites;
+    this.endDate;
     this.destinationDetails = destination;
   }
 
@@ -21,7 +22,7 @@ class Trip {
   }
 
   findEndDate() {
-    this.date = newDate(this.departureData).getTime();
+    this.date = newDate(this.date).getTime();
     let durationInMili = this.duration * 86400000;
     this.endDate = this.date + durationInMili;
   }

@@ -45,6 +45,15 @@ class Traveler {
     })
   }
 
+  findCurrentTrips() {
+    this.currentTrips = this.allTrips.filter(trip => {
+      trip.findEndDate();
+      if(this.currentDate < trip.endDate && this.currentDate > trip.date && !this.currentTrips.includes(trip)) {
+        return trip;
+      }
+    })
+  }
+
 }
 
 
