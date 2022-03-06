@@ -12,13 +12,29 @@
   <body>
     <section class= "main-page hidden">
       <header>
-        <section>
+        <section class= "spending-info">
           <h1>Love at First Flight</h1>
           <h2 id= "greeting">Welcome, friend!</h2>
           <p id="annual-spending">You have spent this much $ on trips this year</p>
         </section>
       </header>
-    </section>
+        <section class= "form-section">
+          <form class= "trip-form" action= "index.html" method="post">
+            <h3>Book your next trip!</h3>
+            <label for= "trip-start">Choose a start date</label>
+            <input type= "date" name= "trip-start" class= "trip-start" id= "trip-start" required></input>
+            <label for= "trip-length">How long will your trip be?</label>
+            <input type= "number" name= "trip-length" class= "trip-duration" id= "trip-length" minLength= "1" min= "1"></input>
+            <label for="travelers">How many travelers?</label>
+            <input type= "number" name= "travelers" class = "trip-travelers" id="travelers" minLength= "1" min= "1"></input>
+            <label for= "trip-destination">Choose from these amazing destinations:</label>
+            <select class= "drop" id= "trip-destination" name= "trip-destination" required></select>
+            <button type= "button" name= "button" class= "booking-quote" id= "booking-quote">Get Quote</button>
+            <button type= "button" name= "button" class= "request-trip-button" id="button-submit">Request Trip</button>
+            <section class= "trip-estimate" id= "trip-estimate"></section>
+          </form>
+        </section>
+      </section>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
     <script src="bundle.js"></script>
   </body>
