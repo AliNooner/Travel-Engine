@@ -34,7 +34,7 @@
             <section class= "trip-estimate" id= "trip-estimate"></section>
           </form>
         </section>
-      </section>
+      <!-- </section> -->
       <section class= "button-section">
         <section class= "buttons">
           <button type= "button" class= "trip-buttons" id= "allTrips" name= "All Trips">All Trips</button>
@@ -43,7 +43,24 @@
           <button type= "button" class= "trip-buttons" id= "upcomingTrips" name= "Upcoming Trips">Upcoming Trips</button>
           <button type= "button" class= "trip-buttons" id= "pendingTrips" name= "Pending Trips">Pending Trips</button>
         </section>
+      <!-- CARD SECTION -->
+      <!-- grid section within cards-->
+        <section class= "grid-container" id= "cardSection">
+          <section class= "card">
+            <div class= "image-section">
+              <img class= "trip-image" src="" alt="no display">
+            </div>
+            <div class= "info-section">
+              <p>Trip Date:</p>
+              <p>Travelers:</p>
+              <p>Number of Days:</p>
+              <p>Status:</p>
+            </div>
+          </section>
+
+        </section>
       </section>
+    </section>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
     <script src="bundle.js"></script>
   </body>
