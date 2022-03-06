@@ -23,7 +23,8 @@ class Traveler {
   // }
 
   findAllTrips(tripData, destinationData) {
-    let filteredTrips = tripData.filter(trip => (trip.userID === this.id));
+    let filteredTrips = tripData.filter(trip => (trip.userID === this.id))
+    console.log(filteredTrips, 'filtered')
     let currentDestination;
     filteredTrips.forEach(trip => {
       destinationData.forEach(destination => {
@@ -37,12 +38,16 @@ class Traveler {
   }
 
   findPastTrips() {
+    // console.log(this.allTrips, 'hereeee!')
     this.pastTrips = this.allTrips.filter(trip => {
       trip.findEndDate();
       if(this.currentDate > trip.endDate && !this.pastTrips.includes(trip)) {
         return trip;
+        // this.pastTrips.push(trip)
       }
+      console.log(this.pastTrips, 'past trips')
     })
+    // return this.pastTrips;
   }
 
   findCurrentTrips() {
@@ -87,7 +92,7 @@ class Traveler {
   calculateAmountSpentThisYear() {
     const thisYearsTrips = this.allTrips.filter(trip => {
       trip.findEndDate();
-      if(trip.date > (newDate('2021/01/01').getTime())) {
+      if(trip.date > (newDate('2022/01/01').getTime())) {
         return trip;
       }
     })
@@ -97,7 +102,6 @@ class Traveler {
     }, 0)
     return annual;
   }
-
 };
 
 

@@ -7,7 +7,7 @@ class Trip {
     this.date = tripData.date;
     this.duration = tripData.duration;
     this.status = tripData.status;
-    this.suggestedActivites = tripData.suggestedActivites;
+    this.suggestedActivities = tripData.suggestedActivities;
     this.endDate;
     // this.destinationDetails = destination;
     this.currentDestination;
@@ -24,7 +24,7 @@ class Trip {
   }
 
   findEndDate() {
-    this.date = newDate(this.date).getTime();
+    this.date = new Date(this.date).getTime();
     let durationInMili = this.duration * 86400000;
     this.endDate = this.date + durationInMili;
   }

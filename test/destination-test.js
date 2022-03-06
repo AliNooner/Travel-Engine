@@ -2,15 +2,15 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import Destination from '../src/destination';
-import destinationData from './test-datasets/destination-data';
+import destinationTestData from './test-datasets/destination-test-data';
 
 describe('Destination class', () => {
 
   let destinationOne, destinationTwo;
 
   beforeEach(() => {
-    destinationOne = new Destination(destinationData[0]);
-    destinationTwo = new Destination(destinationData[1]);
+    destinationOne = new Destination(destinationTestData[0]);
+    destinationTwo = new Destination(destinationTestData[1]);
   })
 
   it('Should be a function', () => {

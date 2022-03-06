@@ -29,7 +29,7 @@ describe('Trip test', () => {
 
   it('Should have a user ID', () => {
     expect(tripData[1].userID).to.be.a('number');
-    expect(tripData[1].userID).to.equal(35);
+    expect(tripData[1].userID).to.equal(10);
   })
 
   it('Should have a destination ID', () => {
@@ -44,7 +44,7 @@ describe('Trip test', () => {
 
   it('Should have a start date', () => {
     expect(tripData[3].date).to.be.a('string');
-    expect(tripData[3].date).to.equal('2022/02/25')
+    expect(tripData[3].date).to.equal('2020/02/25')
   })
 
   it('Should have a duration', () => {
