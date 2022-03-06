@@ -1,8 +1,5 @@
-const getAllData = (url)  => {
-  let getTravelerData = fetch(url)
+export const fetchAPIData = (type) => {
+  return fetch(`http://localhost:3001/api/v1/${type}`)
   .then(response => response.json())
-  return getTravelerData;
-};
-
-
-export default getAllData
+  .catch(error => console.log('error: ', error))
+}
