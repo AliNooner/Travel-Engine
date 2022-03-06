@@ -10,76 +10,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@300&family=PT+Serif&family=Roboto+Serif:wght@100;300;400&family=Zen+Kaku+Gothic+Antique:wght@700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <div class= "logo">
-        <!-- <img class= "main-logo" src="./images/main-logo.png" alt="love at first flight logo"> -->
-        <h1 class="page-name">Love at First Flight</h1>
-      </div>
-      <div class= "welcome">
-        <p class= "welcome-message">Welcome!</p>
-      </div>
-    </header>
-    <section class= "login-page">
-      <div class= "login-container">
-        <form class= "login-form">
-          <h2 class= "login-title">Login</h2>
-          <p>
-            <label for= "username">Username:</label>
-            <input type= "text" id= "username" name= "username" required>
-          </p>
-          <p>
-            <label for= "password">Password:</label>
-            <input type= "text" id= "password" name= "password" required>
-          </p>
-            <input type= "submit" value= "Let's Go!" class= "login-button">
-        </form>
-      </div>
-    </section>
-    <main class= "dashboard hidden">
-      <section class= "top-section">
-        <aside class= "form-container">
-          <form class= "booking-form">
-            <h2 class= "form title">Let's Book A Trip!</h2>
-            <p>
-              <label for= "trip-destination">Destination:</label>
-              <select id= "trip-destination" name= "travel-location" class= "dropdown" required>
-                <option value="" disable selected hidden>Choose a destination</option>
-              </select>
-            </p>
-            <p>
-              <label for= "departure-date">Departure Date:</label>
-              <input type= "date" id= "departure-date" name= "departure-date" required>
-            </p>
-            <p>
-              <label for= "trip-duration">Trip Duration:</label>
-              <input type= "number" id= "trip-duration" name= "trip-duration" min="1" placeholder="Enter a Number" required>
-            </p>
-            <p>
-              <label for= "total-travelers">Total Travelers:</label>
-              <input type= "number" id= "total-travelers" name= "total-travelers" min="1" placeholder="Enter a Number" required>
-            </p>
-            <div class= "form-button-container">
-              <button class="form-button estimate-cost">Estimate Cost</button>
-              <button class="form-button book-trip">Book Trip</button>
-            </div>
+    <section class= "main-page hidden">
+      <header>
+        <section class= "spending-info">
+          <h1>Love at First Flight</h1>
+          <h2 id= "greeting">Welcome, friend!</h2>
+          <p id="annual-spending">You have spent this much $ on trips this year</p>
+        </section>
+      </header>
+        <section class= "form-section">
+          <form class= "trip-form" action= "index.html" method="post">
+            <h3>Book your next trip!</h3>
+            <label for= "trip-start">Choose a start date</label>
+            <input type= "date" name= "trip-start" class= "trip-start" id= "trip-start" required></input>
+            <label for= "trip-length">How long will your trip be?</label>
+            <input type= "number" name= "trip-length" class= "trip-duration" id= "trip-length" minLength= "1" min= "1"></input>
+            <label for="travelers">How many travelers?</label>
+            <input type= "number" name= "travelers" class = "trip-travelers" id="travelers" minLength= "1" min= "1"></input>
+            <label for= "trip-destination">Choose from these amazing destinations:</label>
+            <select class= "drop" id= "trip-destination" name= "trip-destination" required></select>
+            <button type= "button" name= "button" class= "booking-quote" id= "booking-quote">Get Quote</button>
+            <button type= "button" name= "button" class= "request-trip-button" id="button-submit">Request Trip</button>
+            <section class= "trip-estimate" id= "trip-estimate"></section>
           </form>
-        </aside>
-        <section class= "travel-cost">
-          <div class= "yearly-message-display">
-            <p class= "yearly-message">Total $ Spent on Trips This Year:</p>
-          </div>
-          <div class= "display-estimated-cost">
-            <p class= "estimated-cost">You're one step closer to booking your next trip!</p>
-          </div>
+        </section>
+      <!-- </section> -->
+      <section class= "button-section">
+        <section class= "buttons">
+          <button type= "button" class= "trip-buttons" id= "allTrips" name= "All Trips">All Trips</button>
+          <button type= "button" class= "trip-buttons" id= "pastTrips" name= "Past Trips">Past Trips</button>
+          <button type= "button" class= "trip-buttons" id= "currentTrips" name= "Present Trips">Present Trips</button>
+          <button type= "button" class= "trip-buttons" id= "upcomingTrips" name= "Upcoming Trips">Upcoming Trips</button>
+          <button type= "button" class= "trip-buttons" id= "pendingTrips" name= "Pending Trips">Pending Trips</button>
+        </section>
+      <!-- CARD SECTION -->
+      <!-- grid section within cards-->
+        <section class= "grid-container" id= "cardSection">
+          <section class= "card">
+            <div class= "image-section">
+              <img class= "trip-image" src="" alt="no display">
+            </div>
+            <div class= "info-section">
+              <p>Trip Date:</p>
+              <p>Travelers:</p>
+              <p>Number of Days:</p>
+              <p>Status:</p>
+            </div>
+          </section>
+
         </section>
       </section>
-      <section class= "trip-section">
-        <section class= "all-trips">
-          <h2 class= "user-trips">Your Trips:</h2>
-          <section class= "trip-display"></section>
-        </section>
-      </section>
-    </main>
+    </section>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
     <script src="bundle.js"></script>
   </body>
