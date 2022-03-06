@@ -1,4 +1,4 @@
-const tripData = [
+const tripTestData = [
 {
 "id": 1,
 "userID": 44,
@@ -208,4 +208,4 @@ const tripData = [
 
 
 
-export default tripData;
+export default tripTestData;
