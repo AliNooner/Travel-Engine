@@ -92,7 +92,7 @@ class Traveler {
   calculateAmountSpentThisYear() {
     const thisYearsTrips = this.allTrips.filter(trip => {
       trip.findEndDate();
-      if(trip.date > (newDate('2022/01/01').getTime())) {
+      if(trip.date > (newDate('insert date string here').getTime())) {
         return trip;
       }
     })

@@ -8,50 +8,63 @@
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/turing-logo.png'
 
-console.log("This is the JavaScript entry file - your code begins here.");
+// console.log("This is the JavaScript entry file - your code begins here.");
 
 // <<<>>> IMPORTS <<<>>>
 import "./css/styles.css";
-import getAllData from "./apiCalls.js";
+import { fetchAPIdata } from "./apiCalls.js";
+import { domUpdates } from './domUpdates.js'
 import Traveler from "./traveler.js";
-import Destination from "./destination.js"
+// import Destination from "./destination.js"
 import Trip from "./trip.js"
 
 // <<<>>> GLOBAL VARIABLES <<<>>>
+let traveler;
+let travelerData, tripData, destinationData;
+let travelerIndex;
 
-let travelers, trips, destinations, currentTraveler;
 
 // <<<>>> QUERY SELECTORS <<<>>>
+const destinationInput = document.querySelector('.drop')
+// API apiCalls
+
+function fetchData() {
+  return Promise.all([fetchAPIData('travelers'), fetchAPIData('trips'), fetchAPIData('destnations')])
+}
+
+function assignData(index) {
+  travelerIndex = index
+  fetchData()
+  .then((promises => {
+    const fetchedTravelerData = promises[0].travelers
+    const fetchedTripData = promises[1].trips
+    const fetchedDestinationData = promises[2].destinations
+    traveler = new Traveler(fetchedTravelerData[index])
+    travelerData = fetchedTravelerData.map(traveler => {
+      return new Traveler(traveler)})
+    tripData = fetchedTripData.map(trip => {
+      return new Trip(trip)
+    })
+    destinationData = fetchedDestinationData
+    displayTravelerInfo(traveler, tripData, destinationData)
+  }))
+}
 
 // <<<>>> EVENT HANDLERS <<<>>>
 
-function loadPage() {
-  fetchAllData();
+function displayTravelerInfo(traveler, tripData, destinationData) {
+  traveler.findAllTrips(tripData, destinationData);
+  traveler.sortTrips();
+  traveler.calculateAmountSpentThisYear();
+  domUpdates.greetUser(traveler);
+  domUpdates.displayTripCards(traveler, destinationData, 'allTrips');
+  displayTripForm(destinationData);
 }
 
-function fetchAllData() {
-  Promise.all([
-    getAllData("http://localhost:3001/api/v1/travelers"),
-    getAllData("http://localhost:3001/api/v1/trips"),
-    getAllData("http://localhost:3001/api/v1/destinations"),
-    getAllData("http://localhost:3001/api/v1/travelers/3"),
-  ]).then((data) => {
-    console.log('hi!')
-    console.log(data[2]);
-    createDatasets(data[0], data[1], data[2], data[3]);
-  });
+function displayTrips(event) {
+  domUpdates.displayTripCards(traveler, destinationData, event.target.id)
 }
 
-const createDatasets = (
-  travelerData,
-  tripData,
-  destinationData,
-  singleTraveler
-) => {
-  travelers = travelerData.travelers;
-  trips = tripData.trips;
-  destinations = destinationData.destinations;
-  currentTraveler = new Traveler(singleTraveler);
-};
-
-window.onload = loadPage();
+function displayTripForm(destinationData) {
+  domUpdates.createDropMenu(destinationData);
+}
