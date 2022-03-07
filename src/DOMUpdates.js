@@ -57,5 +57,10 @@ export const domUpdates = {
       allDestinationsList += `<option> value= "${destination.id}">${destination.destination}</option>`;
     });
     dropMenu.insertAdjacentHTML("beforeend", allDestinationsList);
+  },
+
+  unhideMainPage() {
+    let mainPage = document.querySelector('.main-page')
+    mainPage.classlist.remove('hidden')
   }
 };
