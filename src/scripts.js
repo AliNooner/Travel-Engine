@@ -31,8 +31,10 @@ const durationInput = document.querySelector('.trip-duration');
 const numTravelersInput = document.querySelector('.trip-travelers');
 const quoteButton = document.querySelector('.booking-quote');
 
+const tripButtons = document.querySelectorAll('.trip-buttons')
+
 // <<<>>> EVENT LISTENERS <<<>>>
-// const tripbuttons.forEach(button => button.addEventListener('click', displayTrips))
+tripButtons.forEach(button => button.addEventListener('click', displayTrips))
 quoteButton.addEventListener('click', function() {
   requestQuote(traveler, tripData);
 })
