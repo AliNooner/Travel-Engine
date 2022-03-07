@@ -84,6 +84,14 @@ export const domUpdates = {
     tripEstimate.innerHTML = `The estimated cost of this trip is $${tripWithDestination.tripCost}`
   },
 
+  resetTripForm(startDateInput, durationInput, numTravelersInput, destinationInput) {
+    startDateInput.value = '';
+    durationInput.value = '';
+    numTravelersInput.value = '';
+    destinationInput.value = 0;
+    tripEstimate.innerHTML = '';
+  },
+
 
   unhideMainPage() {
     let mainPage = document.querySelector('.main-page')
