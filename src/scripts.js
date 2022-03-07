@@ -12,7 +12,7 @@
 
 // <<<>>> IMPORTS <<<>>>
 import "./css/styles.css";
-import { fetchAPIData }  from "./apiCalls.js";
+import { fetchAPIData, postAPIData }  from "./apiCalls.js";
 import { domUpdates } from './domUpdates.js'
 import Traveler from "./traveler.js";
 // import Destination from "./destination.js"
