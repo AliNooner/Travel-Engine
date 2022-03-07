@@ -92,9 +92,13 @@ export const domUpdates = {
     tripEstimate.innerHTML = '';
   },
 
-
   unhideMainPage() {
     let mainPage = document.querySelector('.main-page')
     mainPage.classlist.remove('hidden')
+  },
+
+  displayLoginError() {
+    let errorMessage = document.querySelector('.login-error')
+    errorMessage.classList.remove('hidden')
   }
 };
