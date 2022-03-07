@@ -20,6 +20,7 @@ header {
 
 h1{
   margin: 2vh;
+  display: flex;
 }
 
 .grid-container {
@@ -98,3 +99,7 @@ button, input, select{
 .booking-quote {
   margin: 4px;
 }
+
+/* .hidden {
+  display: none;
+} */
