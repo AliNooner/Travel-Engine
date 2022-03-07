@@ -25,8 +25,26 @@ let travelerIndex;
 
 
 // <<<>>> QUERY SELECTORS <<<>>>
-const destinationInput = document.querySelector('.drop')
-// API apiCalls
+const destinationInput = document.querySelector('.drop');
+const startDateInput = document.querySelector('.trip-start');
+const durationInput = document.querySelector('.trip-duration');
+const numTravelersInput = document.querySelector('.trip-travelers');
+const quoteButton = document.querySelector('.booking-quote');
+
+const tripButtons = document.querySelectorAll('.trip-buttons')
+const requestTripButton = document.querySelector('.request-trip-button')
+
+// <<<>>> EVENT LISTENERS <<<>>>
+tripButtons.forEach(button => button.addEventListener('click', displayTrips))
+quoteButton.addEventListener('click', function() {
+  requestQuote(traveler, tripData);
+})
+requestTripButton.addEventListener('click', function() {
+  requestNewTrip()
+})
+
+
+// <<<>>> API CALLS <<<>>>
 
 function fetchData() {
   return Promise.all([fetchAPIData('travelers'), fetchAPIData('trips'), fetchAPIData('destinations')])
@@ -80,4 +98,38 @@ function displayTripForm(destinationData) {
   domUpdates.createDropMenu(destinationData);
 }
 
+function createNewTrip(traveler, tripData) {
+  const startDate = (startDateInput.value)
+  const duration = (durationInput.value)
+  const travelers = (numTravelersInput.value)
+  const destination = (destinationInput.value)
+  return {
+    "id": tripData.length + 1,
+    "userID": parseInt(traveler.id),
+    "destinationID": parseInt(destination),
+    "travelers": parseInt(travelers),
+    "date": startDate.split('-').join('/'),
+    "duration": parseInt(duration),
+    "status": "pending",
+    "suggestedActivities": []
+  }
+}
+
+function requestQuote(traveler, tripData) {
+  const newTrip = createNewTrip(traveler, tripData)
+  const tripWithDestination = domUpdates.findTripDestination(newTrip, destinationData)
+  domUpdates.displayTripQuote(tripWithDestination)
+}
+
+function requestNewTrip() {
+  const newTrip = createNewTrip(traveler, tripData)
+  postAPIData(newTrip).then(() => {
+    assignData(travelerIndex)
+  }).then(() => {
+    domUpdates.resetTripForm(startDateInput, durationInput, numTravelersInput, destinationInput);
+  })
+}
+
+
+// will need to remove this for iteration 3
 window.addEventListener("onload", assignData(1));

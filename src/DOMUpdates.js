@@ -1,3 +1,5 @@
+let tripEstimate = document.getElementById('trip-estimate');
+
 export const domUpdates = {
 
   greetUser(traveler) {
@@ -58,6 +60,38 @@ export const domUpdates = {
     });
     dropMenu.insertAdjacentHTML("beforeend", allDestinationsList);
   },
+
+  findTripDestination(newTrip, destinationData) {
+    destinationData.forEach(destination => {
+      if(newTrip.destinationID === destination.id) {
+        newTrip.currentDestination = destination
+      }
+    })
+    return newTrip;
+  },
+
+  displayTripQuote(tripWithDestination) {
+    console.log(tripWithDestination, 'here')
+    tripEstimate.innerHTML = '';
+
+    const totalLodgingCost = tripWithDestination.currentDestination.estimatedLodgingCostPerDay * (tripWithDestination.duration / 86400000)
+    console.log(totalLodgingCost, 'total lodging cost')
+    const totalFlightCost = tripWithDestination.currentDestination.estimatedFlightCostPerPerson * tripWithDestination.travelers * 2
+    console.log(totalFlightCost, 'total flight cost')
+    const totalTripCost = 1.1 * (totalLodgingCost + totalFlightCost)
+    tripWithDestination.tripCost = totalTripCost.toFixed(2);
+
+    tripEstimate.innerHTML = `The estimated cost of this trip is $${tripWithDestination.tripCost}`
+  },
+
+  resetTripForm(startDateInput, durationInput, numTravelersInput, destinationInput) {
+    startDateInput.value = '';
+    durationInput.value = '';
+    numTravelersInput.value = '';
+    destinationInput.value = 0;
+    tripEstimate.innerHTML = '';
+  },
+
 
   unhideMainPage() {
     let mainPage = document.querySelector('.main-page')
