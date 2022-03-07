@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="UTF-8">
-    <title>Love at First Flight</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@300&family=PT+Serif&family=Roboto+Serif:wght@100;300;400&family=Zen+Kaku+Gothic+Antique:wght@700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love at First Flight</title>
   </head>
   <body>
     <section class= "main-page hidden">
       <header>
-        <section class= "spending-info">
+        <section>
           <h1>Love at First Flight</h1>
           <h2 id= "greeting">Welcome, friend!</h2>
           <p id="annual-spending">You have spent this much $ on trips this year</p>
         </section>
       </header>
+
         <section class= "form-section">
           <form class= "trip-form" action= "index.html" method="post">
             <h3>Book your next trip!</h3>
@@ -26,41 +27,43 @@
             <label for= "trip-length">How long will your trip be?</label>
             <input type= "number" name= "trip-length" class= "trip-duration" id= "trip-length" minLength= "1" min= "1"></input>
             <label for="travelers">How many travelers?</label>
-            <input type= "number" name= "travelers" class = "trip-travelers" id="travelers" minLength= "1" min= "1"></input>
+            <input type= "number" name= "travelers" class= "trip-travelers" id="travelers" minLength= "1" min= "1"></input>
             <label for= "trip-destination">Choose from these amazing destinations:</label>
-            <select class= "drop" id= "trip-destination" name= "trip-destination" required></select>
+            <select class= "drop" id= "trip-destination" name= "trip-destination" required>
+            </select>
             <button type= "button" name= "button" class= "booking-quote" id= "booking-quote">Get Quote</button>
             <button type= "button" name= "button" class= "request-trip-button" id="button-submit">Request Trip</button>
-            <section class= "trip-estimate" id= "trip-estimate"></section>
+            <section class= "trip-estimate" id= "trip-estimate">
+            </section>
           </form>
         </section>
       <!-- </section> -->
-      <section class= "button-section">
-        <section class= "buttons">
-          <button type= "button" class= "trip-buttons" id= "allTrips" name= "All Trips">All Trips</button>
-          <button type= "button" class= "trip-buttons" id= "pastTrips" name= "Past Trips">Past Trips</button>
-          <button type= "button" class= "trip-buttons" id= "currentTrips" name= "Present Trips">Present Trips</button>
-          <button type= "button" class= "trip-buttons" id= "upcomingTrips" name= "Upcoming Trips">Upcoming Trips</button>
-          <button type= "button" class= "trip-buttons" id= "pendingTrips" name= "Pending Trips">Pending Trips</button>
-        </section>
+        <section class= "button-section">
+          <section class= "buttons">
+            <button type= "button" class= "trip-buttons" id= "allTrips" name= "All Trips">All Trips</button>
+            <button type= "button" class= "trip-buttons" id= "pastTrips" name= "Past Trips">Past Trips</button>
+            <button type= "button" class= "trip-buttons" id= "currentTrips" name= "Present Trips">Present Trips</button>
+            <button type= "button" class= "trip-buttons" id= "upcomingTrips" name= "Upcoming Trips">Upcoming Trips</button>
+            <button type= "button" class= "trip-buttons" id= "pendingTrips" name= "Pending Trips">Pending Trips</button>
+          </section>
       <!-- CARD SECTION -->
       <!-- grid section within cards-->
-        <section class= "grid-container" id= "cardSection">
-          <section class= "card">
-            <div class= "image-section">
-              <img class= "trip-image" src="" alt="no display">
-            </div>
-            <div class= "info-section">
-              <p>Trip Date:</p>
-              <p>Travelers:</p>
-              <p>Number of Days:</p>
-              <p>Status:</p>
-            </div>
-          </section>
+          <section class= "grid-container" id= "cardSection">
+            <section class= "card">
+              <div class= "image-section">
+                <img class= "trip-image" src="" alt="no display">
+              </div>
+              <div class= "info-section">
+                <p>Trip Date:</p>
+                <p>Travelers:</p>
+                <p>Number of Days:</p>
+                <p>Status:</p>
+              </div>
+            </section>
 
+          </section>
         </section>
       </section>
-    </section>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
     <script src="bundle.js"></script>
   </body>
