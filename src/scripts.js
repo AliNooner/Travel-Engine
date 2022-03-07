@@ -28,10 +28,14 @@ let travelerIndex;
 const destinationInput = document.querySelector('.drop');
 const startDateInput = document.querySelector('.trip-start');
 const durationInput = document.querySelector('.trip-duration');
-const numTravelersInput = document.querySelector('trip-travelers');
+const numTravelersInput = document.querySelector('.trip-travelers');
+const quoteButton = document.querySelector('.booking-quote');
 
 // <<<>>> EVENT LISTENERS <<<>>>
 // const tripbuttons.forEach(button => button.addEventListener('click', displayTrips))
+quoteButton.addEventListener('click', function() {
+  requestQuote(traveler, tripData);
+})
 
 // <<<>>> API CALLS <<<>>>
 
@@ -102,6 +106,12 @@ function createNewTrip(traveler, tripData) {
     "status": "pending",
     "suggestedActivities": []
   }
+}
+
+function requestQuote(traveler, tripData) {
+  const newTrip = createNewTrip(traveler, tripData)
+  const tripWithDestination = domUpdates.findTripDestination(newTrip, destinationData)
+  domUpdates.displayTripQuote(tripWithDestination)
 }
 
 

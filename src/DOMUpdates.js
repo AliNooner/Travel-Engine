@@ -71,15 +71,19 @@ export const domUpdates = {
   },
 
   displayTripQuote(tripWithDestination) {
+    console.log(tripWithDestination, 'here')
     tripEstimate.innerHTML = '';
 
     const totalLodgingCost = tripWithDestination.currentDestination.estimatedLodgingCostPerDay * (tripWithDestination.duration / 86400000)
+    console.log(totalLodgingCost, 'total lodging cost')
     const totalFlightCost = tripWithDestination.currentDestination.estimatedFlightCostPerPerson * tripWithDestination.travelers * 2
-    const totalTripCost = 1.1 * (totalLodgingCost * totalFlightCost)
+    console.log(totalFlightCost, 'total flight cost')
+    const totalTripCost = 1.1 * (totalLodgingCost + totalFlightCost)
     tripWithDestination.tripCost = totalTripCost.toFixed(2);
 
     tripEstimate.innerHTML = `The estimated cost of this trip is $${tripWithDestination.tripCost}`
   },
+
 
   unhideMainPage() {
     let mainPage = document.querySelector('.main-page')
