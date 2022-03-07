@@ -32,12 +32,17 @@ const numTravelersInput = document.querySelector('.trip-travelers');
 const quoteButton = document.querySelector('.booking-quote');
 
 const tripButtons = document.querySelectorAll('.trip-buttons')
+const requestTripButton = document.querySelector('.request-trip-button')
 
 // <<<>>> EVENT LISTENERS <<<>>>
 tripButtons.forEach(button => button.addEventListener('click', displayTrips))
 quoteButton.addEventListener('click', function() {
   requestQuote(traveler, tripData);
 })
+requestTripButton.addEventListener('click', function() {
+  requestNewTrip()
+})
+
 
 // <<<>>> API CALLS <<<>>>
 
@@ -114,6 +119,15 @@ function requestQuote(traveler, tripData) {
   const newTrip = createNewTrip(traveler, tripData)
   const tripWithDestination = domUpdates.findTripDestination(newTrip, destinationData)
   domUpdates.displayTripQuote(tripWithDestination)
+}
+
+function requestNewTrip() {
+  const newTrip = createNewTrip(traveler, tripData)
+  postAPIData(newTrip).then(() => {
+    assignData(travelerIndex)
+  }).then(() => {
+    domUpdates.resetTripForm(startDateInput, durationInput, numTravelersInput, destinationInput);
+  })
 }
 
 

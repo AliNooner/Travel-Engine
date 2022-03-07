@@ -5,7 +5,7 @@ export const fetchAPIData = (type) => {
 }
 
 export const postAPIData = (newTrip) => {
-  return fetch ('http://localhost:3001/api/v1/',
+  return fetch('http://localhost:3001/api/v1/trips',
     {
       headers: {
         'Content-Type': 'application/json'
