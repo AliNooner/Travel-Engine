@@ -1,7 +1,7 @@
 export const domUpdates = {
 
   greetUser(traveler) {
-    const greetingMessage = document.getElementById('.greeting');
+    const greetingMessage = document.getElementById('greeting');
     const firstName = traveler.name.split(''[0]);
     greetingMessage.innerText = `Welcome, ${firstName}!`;
   },
@@ -9,7 +9,7 @@ export const domUpdates = {
   displayYearlyTripCost(traveler) {
     const annualTripCost = document.getElementById('annual-spending');
     const yearlyCost = traveler.calculateAmountSpentThisYear();
-
+    console.log(yearlyCost, 'yearlycost')
     if(yearlyCost !== 0) {
       annualTripCost.innerText = `You have spent $${yearlyCost} on trips so far this year`
     } else {
@@ -19,7 +19,7 @@ export const domUpdates = {
 
   displayTripCards(traveler, allDestinations, cardType) {
     let cardSection = document.getElementById('card-section')
-    cardSection.innerHtml = '';
+    cardSection.innerHTML = '';
 
     if(traveler[cardType].length > 0) {
       traveler[cardType].forEach(trip => {
@@ -30,7 +30,7 @@ export const domUpdates = {
         let cardInfo =
         `<section class="card">
           <div class= "image-section">
-            <img class= "trip-image" src= "${trip.currentDestination.imgae}" alt = "${trip.currentDestination.alt}">
+            <img class= "trip-image" src= "${trip.currentDestination.image}" alt = "${trip.currentDestination.alt}">
           </div>
           <div class= "info-section">
             <p>${trip.currentDestination.destination.toUpperCase()}</p>
@@ -54,7 +54,7 @@ export const domUpdates = {
 
     let allDestinationsList = "";
     destinationData.forEach((destination) => {
-      allDestinationsList += `<option> value= "${destination.id}">${destination.destination}</option>`;
+      allDestinationsList += `<option value= "${destination.id}">${destination.destination}</option>`;
     });
     dropMenu.insertAdjacentHTML("beforeend", allDestinationsList);
   },
