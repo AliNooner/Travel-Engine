@@ -70,6 +70,17 @@ export const domUpdates = {
     return newTrip;
   },
 
+  displayTripQuote(tripWithDestination) {
+    tripEstimate.innerHTML = '';
+
+    const totalLodgingCost = tripWithDestination.currentDestination.estimatedLodgingCostPerDay * (tripWithDestination.duration / 86400000)
+    const totalFlightCost = tripWithDestination.currentDestination.estimatedFlightCostPerPerson * tripWithDestination.travelers * 2
+    const totalTripCost = 1.1 * (totalLodgingCost * totalFlightCost)
+    tripWithDestination.tripCost = totalTripCost.toFixed(2);
+
+    tripEstimate.innerHTML = `The estimated cost of this trip is $${tripWithDestination.tripCost}`
+  },
+
   unhideMainPage() {
     let mainPage = document.querySelector('.main-page')
     mainPage.classlist.remove('hidden')
