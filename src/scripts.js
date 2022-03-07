@@ -12,7 +12,7 @@
 
 // <<<>>> IMPORTS <<<>>>
 import "./css/styles.css";
-import { fetchAPIdata } from "./apiCalls.js";
+import { fetchAPIData }  from "./apiCalls.js";
 import { domUpdates } from './domUpdates.js'
 import Traveler from "./traveler.js";
 // import Destination from "./destination.js"
@@ -29,25 +29,36 @@ const destinationInput = document.querySelector('.drop')
 // API apiCalls
 
 function fetchData() {
-  return Promise.all([fetchAPIData('travelers'), fetchAPIData('trips'), fetchAPIData('destnations')])
+  return Promise.all([fetchAPIData('travelers'), fetchAPIData('trips'), fetchAPIData('destinations')])
 }
 
 function assignData(index) {
   travelerIndex = index
   fetchData()
+  // .then(console.log(promises, 'promises'))
   .then((promises => {
+    // console.log(promises[0].travelers)
     const fetchedTravelerData = promises[0].travelers
+    // console.log(fetchedTravelerData)
     const fetchedTripData = promises[1].trips
+    // console.log(fetchedTripData)
     const fetchedDestinationData = promises[2].destinations
+    // console.log(fetchedDestinationData)
     traveler = new Traveler(fetchedTravelerData[index])
+    // console.log(traveler)
+
     travelerData = fetchedTravelerData.map(traveler => {
       return new Traveler(traveler)})
+      // console.log(travelerData)
     tripData = fetchedTripData.map(trip => {
       return new Trip(trip)
     })
+    // console.log(tripData)
     destinationData = fetchedDestinationData
+    // console.log(destinationData)
     displayTravelerInfo(traveler, tripData, destinationData)
   }))
+  // .then(console.log(fetchedTravelerData))
 }
 
 // <<<>>> EVENT HANDLERS <<<>>>
@@ -55,9 +66,9 @@ function assignData(index) {
 function displayTravelerInfo(traveler, tripData, destinationData) {
   traveler.findAllTrips(tripData, destinationData);
   traveler.sortTrips();
-  traveler.calculateAmountSpentThisYear();
   domUpdates.greetUser(traveler);
   domUpdates.displayTripCards(traveler, destinationData, 'allTrips');
+  domUpdates.displayYearlyTripCost(traveler);
   displayTripForm(destinationData);
 }
 
@@ -68,3 +79,5 @@ function displayTrips(event) {
 function displayTripForm(destinationData) {
   domUpdates.createDropMenu(destinationData);
 }
+
+window.addEventListener("onload", assignData(1));
