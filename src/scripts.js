@@ -25,8 +25,15 @@ let travelerIndex;
 
 
 // <<<>>> QUERY SELECTORS <<<>>>
-const destinationInput = document.querySelector('.drop')
-// API apiCalls
+const destinationInput = document.querySelector('.drop');
+const startDateInput = document.querySelector('.trip-start');
+const durationInput = document.querySelector('.trip-duration');
+const numTravelersInput = document.querySelector('trip-travelers');
+
+// <<<>>> EVENT LISTENERS <<<>>>
+// const tripbuttons.forEach(button => button.addEventListener('click', displayTrips))
+
+// <<<>>> API CALLS <<<>>>
 
 function fetchData() {
   return Promise.all([fetchAPIData('travelers'), fetchAPIData('trips'), fetchAPIData('destinations')])
@@ -80,4 +87,23 @@ function displayTripForm(destinationData) {
   domUpdates.createDropMenu(destinationData);
 }
 
+function createNewTrip(traveler, tripData) {
+  const startDate = (startDateInput.value)
+  const duration = (durationInput.value)
+  const travelers = (numTravelersInput.value)
+  const destination = (destinationInput.value)
+  return {
+    "id": tripData.length + 1,
+    "userID": parseInt(traveler.id),
+    "destinationID": parseInt(destination),
+    "travelers": parseInt(travelers),
+    "date": startDate.split('-').join('/'),
+    "duration": parseInt(duration),
+    "status": "pending",
+    "suggestedActivities": []
+  }
+}
+
+
+// will need to remove this for iteration 3
 window.addEventListener("onload", assignData(1));

@@ -1,3 +1,5 @@
+let tripEstimate = document.getElementById('trip-estimate');
+
 export const domUpdates = {
 
   greetUser(traveler) {
@@ -57,6 +59,15 @@ export const domUpdates = {
       allDestinationsList += `<option value= "${destination.id}">${destination.destination}</option>`;
     });
     dropMenu.insertAdjacentHTML("beforeend", allDestinationsList);
+  },
+
+  findTripDestination(newTrip, destinationData) {
+    destinationData.forEach(destination => {
+      if(newTrip.destinationID === destination.id) {
+        newTrip.currentDestination = destination
+      }
+    })
+    return newTrip;
   },
 
   unhideMainPage() {
