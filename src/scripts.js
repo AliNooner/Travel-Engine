@@ -31,8 +31,11 @@ const durationInput = document.querySelector('.trip-duration');
 const numTravelersInput = document.querySelector('.trip-travelers');
 const quoteButton = document.querySelector('.booking-quote');
 
-const tripButtons = document.querySelectorAll('.trip-buttons')
-const requestTripButton = document.querySelector('.request-trip-button')
+const tripButtons = document.querySelectorAll('.trip-buttons');
+const requestTripButton = document.querySelector('.request-trip-button');
+const username = document.getElementById('username-field');
+const password = document.getElementById('password-field');
+const loginButton = document.getElementById('login-button');
 
 // <<<>>> EVENT LISTENERS <<<>>>
 tripButtons.forEach(button => button.addEventListener('click', displayTrips))
@@ -41,6 +44,9 @@ quoteButton.addEventListener('click', function() {
 })
 requestTripButton.addEventListener('click', function() {
   requestNewTrip()
+})
+loginButton.addEventListener('click', function() {
+  loginUser()
 })
 
 
@@ -130,6 +136,21 @@ function requestNewTrip() {
   })
 }
 
+  function loginUser() {
+    let usernameInput = username.value
+    let passwordInput = password.value
+    let index = parseInt(usernameInput.split("traveler")[1]) -1
+    if(!username.value || !password.value) {
+      domUpdates.displayLoginError();
+    } else if (passwordInput === "travel" && (index > 0 && index <= 50)) {
+      assignData(index);
+      domUpdates.hideLoginPage();
+      domUpdates.unhideMainPage();
+      return index;
+    }
+  }
+
+
 
 // will need to remove this for iteration 3
-window.addEventListener("onload", assignData(1));
+// window.addEventListener("onload", assignData(1));

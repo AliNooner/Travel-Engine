@@ -96,6 +96,10 @@ button, input, select{
   margin: 4px;
 }
 
+.hidden {
+  display: none;
+}
+
 
 @media screen and (max-width: 1220px) {
   .grid-container {
