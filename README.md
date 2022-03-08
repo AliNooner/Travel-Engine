@@ -1,4 +1,4 @@
-# Webpack Starter Kit
+<!-- # Webpack Starter Kit
 
 ## Clone This Repo
 
@@ -14,7 +14,7 @@ Now try to commit something and push it up to your new repo. If everything is se
 
 ## Setup
 
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo. 
+After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo.
 
 Then install the library dependencies. Run:
 
@@ -90,7 +90,7 @@ The test results will output to the terminal.
 
 Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
 
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
+Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory.
 
 ## Webpack?
 
@@ -103,4 +103,47 @@ _If you are finished with the functionality and testing of your project_, then y
 [GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
 
 If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
-# travel-tracker-two
+# travel-tracker-two -->
+
+# Love at First Flight - Travel Tracker - Mod 2 Final
+
+## Abstract
+Love at First Flight is a tracker app which allows users to track their travel. Users are able to log in using a name and password, after which they are directed to a dashboard which displays all of their travel. Users greeted with a display of all of their trips, as well as a total sum of the money they’ve spent on trips so far that year. Users are able to sort their trips by category: past, present, upcoming and pending. They are able to request a quote for a new trip by selecting a destination, trip start date, trip duration and number of travelers. Users are able to request the trip, upon which the new trip they’ve built will be placed into their “pending trips.”
+
+## Learning Goals
+Project Spec: [link](https://frontend.turing.edu/projects/travel-tracker.html)
+
+- Use OOP to drive the design of the application and the code
+- Work with an API to send and receive data
+- Solidify the code review process
+- Create a robust test suite that thoroughly tests all functionality of a client-side application
+
+## Technologies Used
+- JavaScript
+- HTML
+- CSS
+- Lighthouse (accessibility)
+- Mocha & Chai (testing)
+- GitHub Project Board (planning)
+- NPM package/Webpack
+- Fetch API (endpoints provided by Turing instructors)
+
+## Setup
+- Fork this repo and copy the SSH link
+- Open your terminal, run git clone (replace the [ ] with the copied remote address)
+- Visit the project spec (listed above in Learning Goals) to access the API used and follow it's instructions
+- Open the API in your terminal, run npm install and nmp start (leave window running in terminal)
+- Change into this repo's directory and run the following to view page:
+npm install and then src/open index.html
+
+## Illustrations
+
+
+## Future Extensions
+- Update styling with icons and photos
+- Add ability for users to add a new destination
+- Add ability for users to modify a trip
+- Add agent interaction which allows an agent to login, see their own dashboard and approve/edit user trips
+
+## Contributors
+[Ali Nooner](https://github.com/AliNooner)
