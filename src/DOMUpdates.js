@@ -94,7 +94,7 @@ export const domUpdates = {
 
   unhideMainPage() {
     let mainPage = document.querySelector('.main-page')
-    mainPage.classlist.remove('hidden')
+    mainPage.classList.remove('hidden')
   },
 
   hideLoginPage() {
