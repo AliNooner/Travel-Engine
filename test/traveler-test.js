@@ -171,11 +171,11 @@ it('should create a list of upcoming trips', () => {
   }])
 });
 
-  it.skip('should calculate the amount spent on trips in the current year', () => {
+  it('should calculate the amount spent on trips in the current year', () => {
    tripData = tripTestData.map(object => new Trip(object));
    travelerData[9].findAllTrips(tripData, destinationTestData);
-   expect(travelerData[9].calcAmountSpentThisYear()).to.be.a('string');
-   expect(travelerData[9].calcAmountSpentThisYear()).to.equal('8580.00')
+   expect(travelerData[9].calculateAmountSpentThisYear()).to.be.a('string');
+   expect(travelerData[9].calculateAmountSpentThisYear()).to.equal('8580.00')
  })
 
 
