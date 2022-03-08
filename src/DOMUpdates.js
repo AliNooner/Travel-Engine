@@ -10,7 +10,7 @@ export const domUpdates = {
   displayYearlyTripCost(traveler) {
     const annualTripCost = document.getElementById("annual-spending");
     const yearlyCost = traveler.calculateAmountSpentThisYear();
-    console.log(yearlyCost, "yearlycost");
+    // console.log(yearlyCost, "yearlycost");
     if (yearlyCost !== 0) {
       annualTripCost.innerText = `You have spent $${yearlyCost} on trips so far this year`;
     } else {
