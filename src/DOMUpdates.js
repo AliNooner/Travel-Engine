@@ -49,8 +49,6 @@ export const domUpdates = {
     }
   },
 
-// }
-
   createDropMenu(destinationData) {
     const dropMenu = document.getElementById('trip-destination');
 
