@@ -3,7 +3,6 @@ const expect = chai.expect;
 
 import Trip from '../src/trip';
 import tripTestData from './test-datasets/trip-test-data';
-// import destinationData from './test-datasets/destination-data';
 
 describe('Trip test', () => {
 
@@ -57,8 +56,4 @@ describe('Trip test', () => {
     expect(tripData[5].status).to.equal('approved');
   })
 
-  // it('Should have an array of suggested activities', () => {
-    // expect(tripData[0].suggestedActivites).to.be.a('array');
-    // expect(tripData[0].suggestedActivites).to.equal([];)
-  // })
 })
