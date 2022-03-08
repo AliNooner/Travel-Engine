@@ -97,6 +97,11 @@ export const domUpdates = {
     mainPage.classlist.remove('hidden')
   },
 
+  hideLoginPage() {
+    let loginPage = document.querySelector('.login-page')
+    loginPage.classList.add('hidden')
+  },
+
   displayLoginError() {
     let errorMessage = document.querySelector('.login-error')
     errorMessage.classList.remove('hidden')
